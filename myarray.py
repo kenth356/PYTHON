@@ -13,8 +13,7 @@ def main():
         try:
             choice = int(input("Enter: "))
         except ValueError:
-            for i in range(3):
-                print("\n[ENTER A VALID INPUT]")
+            choice = -1
         
         match choice:
             case 1:
@@ -25,7 +24,7 @@ def main():
                 exitARRAY()
                 return
             case _:
-                print("\n[THANK YOU FOR USING THIS PROGRAM]")
+                print("\n[ENTER A VALID INPUT]")
 
 def inputARRAY():
     print("\nDo you want to enter a value for your array?")
@@ -49,7 +48,7 @@ def printARRAY():
         try:
             choice = int(input("Enter: "))
         except ValueError:
-            print("\n[ENTER A VALID INPUT]")
+            choice = -1
 
         if choice == 1:
             if not arrayHANDLING:
@@ -57,26 +56,28 @@ def printARRAY():
             else:
                 for value in arrayHANDLING:
                     print(f"\n{value.array}")
-        if choice == 2:
+        elif choice == 2:
             if not arrayHANDLING:
                 print("\n[LIST IS EMPTY]")
             else:
                 complete_array = [value.array for value in arrayHANDLING]
                 print(f"\n{complete_array}")
-        if choice == 3:
+        elif choice == 3:
             if not arrayHANDLING:
                 print("\n[LIST IS EMPTY]")
             else:
                 for value in reversed(arrayHANDLING):
                     print(f"\n{value.array}")
-        if choice == 4:
+        elif choice == 4:
             if not arrayHANDLING:
                 print("\n[LIST IS EMPTY]")
             else:
                 complete_set = [value.array for value in reversed(arrayHANDLING)]
                 print(f"\n{complete_set}")
-        if choice == 5:
+        elif choice == 5:
             break
+        else:
+            print("\n[ENTER A VALID INPUT]")
 
 def exitARRAY():
     for i in range(3):
