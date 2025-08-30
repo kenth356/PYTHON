@@ -27,15 +27,42 @@ def main():
                 print("\n[ENTER A VALID INPUT]")
 
 def inputARRAY():
-    print("\nDo you want to enter a value for your array?")
-    choice = input("Enter: ")
-    
-    while choice.lower() == "yes":
-        value = int(input("\nEnter value for the array: "))
-        new_value = my_array(value)
-        arrayHANDLING.append(new_value)
-        print("\nDo you want to enter another value for your array?")
-        choice = input("Enter: ")
+    while True:
+        print("\nwhat data type do you want for inputing values to your array?")
+        print("1. -- Integer")
+        print("2. -- String")
+        print("3. -- Float")
+        print("4. -- return to menu")
+        try:
+            choice = int(input("Enter: "))
+        except ValueError:
+            choice = -1
+        match choice:
+            case 1:
+                inputINT()
+            case 2:
+                inputSTR()
+            case 3:
+                inputFLOAT()
+            case 4:
+                break
+            case _:
+                print("\n[ENTER A VALID INPUT]")
+
+def inputINT():
+    value = int(input("\nEnter integer value: "))
+    listed_value = my_array(value)
+    arrayHANDLING.append(listed_value)
+
+def inputSTR():
+    value = input("\nEnter string value: ")
+    listed_value = my_array(value)
+    arrayHANDLING.append(listed_value)
+
+def inputFLOAT():
+    value = float(input("\nEnter float value: "))
+    listed_value = my_array(value)
+    arrayHANDLING.append(listed_value)
 
 def printARRAY():
     while True:
@@ -54,25 +81,25 @@ def printARRAY():
             if not arrayHANDLING:
                 print("\n[LIST IS EMPTY]")
             else:
-                for value in arrayHANDLING:
-                    print(f"\n{value.array}")
+                for values in arrayHANDLING:
+                    print(f"\n{values.array}")
         elif choice == 2:
             if not arrayHANDLING:
                 print("\n[LIST IS EMPTY]")
             else:
-                complete_array = [value.array for value in arrayHANDLING]
+                complete_array = [values.array for values in arrayHANDLING]
                 print(f"\n{complete_array}")
         elif choice == 3:
             if not arrayHANDLING:
                 print("\n[LIST IS EMPTY]")
             else:
-                for value in reversed(arrayHANDLING):
-                    print(f"\n{value.array}")
+                for values in reversed(arrayHANDLING):
+                    print(f"\n{values.array}")
         elif choice == 4:
             if not arrayHANDLING:
                 print("\n[LIST IS EMPTY]")
             else:
-                complete_set = [value.array for value in reversed(arrayHANDLING)]
+                complete_set = [values.array for values in reversed(arrayHANDLING)]
                 print(f"\n{complete_set}")
         elif choice == 5:
             break
