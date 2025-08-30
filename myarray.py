@@ -1,3 +1,4 @@
+# Kenth Mariano
 class my_array:
     def __init__(self, array):
         self.array = array
@@ -9,7 +10,8 @@ def main():
         print("\nWhat kind of action do you want to do in your array?")
         print("1. -- Input")
         print("2. -- Print")
-        print("3. -- Exit")
+        print("3. -- Clear / Remove")
+        print("4. -- Exit")
         try:
             choice = int(input("Enter: "))
         except ValueError:
@@ -21,6 +23,8 @@ def main():
             case 2:
                 printARRAY()
             case 3:
+                removeARRAY()
+            case 4:
                 exitARRAY()
                 return
             case _:
@@ -102,6 +106,34 @@ def printARRAY():
                 complete_set = [values.array for values in reversed(arrayHANDLING)]
                 print(f"\n{complete_set}")
         elif choice == 5:
+            break
+        else:
+            print("\n[ENTER A VALID INPUT]")
+
+def removeARRAY():
+    while True:
+        print("\nin what way do you want to remove a value in your array?")
+        print("1. -- Clear All")
+        print("2. -- Remove one value")
+        print("3. -- Return to menu")
+        try:
+            choice = int(input("Enter: "))
+        except ValueError:
+            choice = -1
+        
+        if choice == 1:
+            if not arrayHANDLING:
+                print("\n[LIST IS EMPTY]")
+            else:
+                arrayHANDLING.clear()
+        elif choice == 2:
+            if not arrayHANDLING:
+                print("\n[LIST IS EMPTY]")
+            else:
+                print("\nwhat number of index do you want to remove in the list?")
+                index = int(input("Enter: "))
+                arrayHANDLING.pop(index)
+        elif choice == 3:
             break
         else:
             print("\n[ENTER A VALID INPUT]")
